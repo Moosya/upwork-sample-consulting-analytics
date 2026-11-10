@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Sample Layout: Consulting Website with Booking and Analytics</title>
+<style>
+:root{--ink:#1a2430;--muted:#5c6b7a;--brand:#1f4f7a;--soft:#eef3f8;--line:#d7e0ea;--bg:#fff}
+*{box-sizing:border-box}body{margin:0;font-family:Georgia,"Times New Roman",serif;color:var(--ink);background:var(--bg);line-height:1.6}
+.ui{font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif}
+.banner{background:#ffd900;color:#000;text-align:center;font-weight:700;padding:10px 14px;font-size:15px;position:sticky;top:0;z-index:20;font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif}
+.ph{background:#fff3b0;border:1px dashed #b38f00;padding:0 4px;border-radius:3px;color:#000;font-weight:600;font-size:.92em;font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif}
+header{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;padding:18px 7%;border-bottom:1px solid var(--line)}
+.logo{font-size:20px;font-weight:700;letter-spacing:.02em;color:var(--brand);font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif}
+nav{display:flex;gap:22px;flex-wrap:wrap;font-size:15px;font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif}
+nav a{color:var(--ink);text-decoration:none}
+.imgph{border-radius:10px;background:repeating-linear-gradient(45deg,#d9e4ef,#d9e4ef 12px,#e8eef5 12px,#e8eef5 24px);display:flex;align-items:center;justify-content:center;text-align:center;color:var(--muted);font-weight:600;padding:18px;font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif}
+.hero{display:grid;grid-template-columns:1.15fr .85fr;gap:48px;align-items:center;padding:72px 7% 56px;background:linear-gradient(180deg,var(--soft),#fff)}
+.hero h1{font-size:46px;line-height:1.12;font-weight:400;margin:0 0 18px;letter-spacing:-.01em}
+.hero .lead{font-size:19px;color:var(--muted);margin:0 0 26px;max-width:540px;font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif}
+.btn{display:inline-block;padding:13px 24px;border-radius:6px;text-decoration:none;font-weight:700;font-size:15px;font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif;margin:0 10px 10px 0}
+.btn.p{background:var(--brand);color:#fff}.btn.g{background:transparent;color:var(--brand);border:1.5px solid var(--brand)}
+.note{font-size:13px;color:var(--muted);margin-top:8px;font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif}
+section{padding:64px 7%}section.soft{background:var(--soft)}
+h2{font-size:32px;font-weight:400;margin:0 0 8px}.sub{color:var(--muted);margin:0 0 28px;font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif;max-width:620px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:20px}
+.card{background:#fff;border:1px solid var(--line);border-radius:12px;padding:24px}
+.card h3{margin:0 0 8px;font-size:20px;font-weight:600;font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif}
+.card p{margin:0;color:var(--muted);font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif;font-size:15px}
+.about{display:grid;grid-template-columns:1fr 1.1fr;gap:40px;align-items:center}
+.about p{font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif;color:var(--muted)}
+.formwrap{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:start}
+.form{background:#fff;border:1px solid var(--line);border-radius:12px;padding:28px;box-shadow:0 10px 28px rgba(20,40,70,.06)}
+.form h3{margin:0 0 6px;font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif;font-size:22px}
+.form p{margin:0 0 16px;color:var(--muted);font-size:14px;font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif}
+.form label{display:block;font-size:13px;font-weight:600;margin:12px 0 4px;font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif}
+.form .f{border:1px solid var(--line);border-radius:8px;padding:11px 12px;color:#8a95a1;font-size:14px;background:#fafcfe;font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif}
+.form .f.tall{height:80px}
+.form .submit{margin-top:18px;background:var(--brand);color:#fff;text-align:center;font-weight:700;padding:13px;border-radius:8px;font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif}
+.form small{display:block;margin-top:10px;color:var(--muted);font-size:12px;font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif}
+.trust{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:14px;margin-top:18px}
+.trust .imgph{height:72px;font-size:13px}
+footer{padding:28px 7%;border-top:1px solid var(--line);color:var(--muted);font-size:13px;font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif;display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
+@media(max-width:860px){.hero,.about,.formwrap{grid-template-columns:1fr}.hero h1{font-size:34px}nav a:not(.keep){display:none}}
+</style>
+<style>@media(max-width:760px){.hero{grid-template-columns:1fr}.hero h1{font-size:34px}}</style>
+</head>
+<body>
+<div class="banner">Sample layout for your consulting site. Every highlighted item is a placeholder for your own copy, brand colors and details.</div>
+<header><div class="logo"><span class="ph">[Your Firm Name]</span></div>
+<nav><a href="#services">Services</a><a href="#approach">Approach</a><a href="#about">About</a><a href="#book">Book a call</a></nav></header>
+<div class="hero"><div>
+<h1><span class="ph">[Your headline from your script]</span></h1>
+<p class="lead"><span class="ph">[One or two sentences from your script on who you help and the result you deliver]</span></p>
+<a class="btn p" href="#book">Book a consultation</a><a class="btn g" href="#services">See services</a>
+<p class="note">Both buttons are tracked as GA4 conversion events in the real build.</p>
+</div><div class="imgph" style="min-height:300px">[Your photo or brand image]</div></div>
+<section id="services"><h2>Services</h2><p class="sub"><span class="ph">[Short intro line from your script]</span></p>
+<div class="grid">
+<div class="card"><h3><span class="ph">[Service 1]</span></h3><p class="ui"><span class="ph">[2–3 sentences from your script]</span></p></div>
+<div class="card"><h3><span class="ph">[Service 2]</span></h3><p class="ui"><span class="ph">[2–3 sentences from your script]</span></p></div>
+<div class="card"><h3><span class="ph">[Service 3]</span></h3><p class="ui"><span class="ph">[2–3 sentences from your script]</span></p></div>
+</div></section>
+<section id="approach" class="soft"><h2>How an engagement works</h2><p class="sub">A simple path from first visit to booked call.</p>
+<div class="grid">
+<div class="card"><h3>1. <span class="ph">[Discovery]</span></h3><p class="ui"><span class="ph">[Your step description]</span></p></div>
+<div class="card"><h3>2. <span class="ph">[Plan]</span></h3><p class="ui"><span class="ph">[Your step description]</span></p></div>
+<div class="card"><h3>3. <span class="ph">[Delivery]</span></h3><p class="ui"><span class="ph">[Your step description]</span></p></div>
+</div></section>
+<section id="about"><div class="hero" style="padding:0;background:none"><div>
+<h2>About <span class="ph">[Your Firm Name]</span></h2>
+<p class="ui"><span class="ph">[Your background and credentials, from your script]</span></p>
+<p class="ui"><span class="ph">[Client logos or testimonials only if you have real ones]</span></p>
+</div><div class="imgph" style="min-height:220px">[Headshot]</div></div></section>
+<section id="book" class="soft"><h2>Book a consultation</h2><p class="sub">Your Calendly or TidyCal scheduler embeds here, so visitors pick a time without leaving the page.</p>
+<div class="grid">
+<div class="imgph" style="min-height:260px">[Scheduler embed: Calendly / TidyCal]</div>
+<div class="card ui"><h3>Not ready to book?</h3><p>Short lead-capture form:</p>
+<p><span class="ph">[Name field]</span></p><p><span class="ph">[Email field]</span></p><p><span class="ph">[What do you need help with?]</span></p>
+<p><span class="btn p" style="cursor:default">Send</span></p>
+<p class="note">Submissions go to your inbox or CRM and fire a GA4 "generate_lead" event.</p></div>
+</div></section>
+<section class="ui"><h2>Tracking stack (included in the build)</h2>
+<div class="grid">
+<div class="card"><h3>GA4</h3><p>Page views, scroll depth, and conversions for booked calls and form sends.</p></div>
+<div class="card"><h3>Microsoft Clarity</h3><p>Heatmaps and session recordings to see where visitors drop off.</p></div>
+<div class="card"><h3>On-page SEO</h3><p>Titles, meta descriptions, headings, alt text, schema and a sitemap from day one.</p></div>
+</div></section>
+<footer class="ui" style="padding:28px 7%;color:#5c6b7a;border-top:1px solid #d7e0ea">© <span class="ph">[Year] [Your Firm Name]</span>. Sample layout only.</footer>
+</body></html>
